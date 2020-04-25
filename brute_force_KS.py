@@ -1,29 +1,42 @@
+#!/usr/bin/env python
 import sys
 import time
 
+# powerset(items) takes item list of weights and profits
+# creates a powerset(true combination) of all items as separate list elements
 def powerset(items):
+    # return double list
     ret = [[]]
     for item in items:
         newset = [r+[item] for r in ret]
         ret.extend(newset)
     return ret
 
+# knapsackBruteForce(pset, capacity) takes generator powerset(list) and capacity
+# it goes through every element in the psets and sums their profit and makes sure they are under capacity
 def knapsackBruteForce(pset, capacity):
+    # maxprofit holds best value outide of for loop
+    # bestKnapsack holds solution
+    # count optional
     maxProfit = 0
     bestKnapsack = []
     count = 0
     for s in pset:
         count += 1
+        # the sum of current element in pset
         currentWeight = sum([item[0] for item in s])
         currentProfit = sum([item[1] for item in s])
         if currentWeight <= capacity and currentProfit > maxProfit:
             bestKnapsack = s
             maxProfit = currentProfit
-    print(count)
     return bestKnapsack, maxProfit
 
+
+# main execution path
+# read variables
 file = open(sys.argv[1], "r")
 lines = file.readlines()
+# storing data from text files, item is list of profit and weights
 problemSize = 0
 capacity = 0
 items = [];
@@ -39,12 +52,13 @@ for line in lines:
 
 file.close()
 
+# timings, and return variables
 start = time.time()
 pset = powerset(items)
 knapsack, maxProfit = knapsackBruteForce(pset, capacity)
 end = time.time()
 totalTime = end - start
-
+print(totalTime)
 output = open(sys.argv[2], "w")
 output.write("# of Items: " +  str(problemSize) + '\n')
 output.write("Capacity: " + str(capacity) + '\n')
