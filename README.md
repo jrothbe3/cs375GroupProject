@@ -6,8 +6,8 @@ Execution instructions:
 2. Enter directory with .py file
 3. In linux terminal enter "python backtrack.py <input.txt> <output.txt>"
 or "python brute_force_KS.py <input.txt> <output.txt>"
-or "python brute_force_optimized.py <input.txt> <output.txt>"'
-or "python executor.py <number of elements> <testing iterations>" 
+or "python brute_force_optimized.py <input.txt> <output.txt>"
+or "python executor.py <numberofelements(int)> <testingiterations(int)>
 ___________________________________________________________
 backtrack.py:
 Immutable arrays for holding items and some single lists for output. 
