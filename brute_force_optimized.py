@@ -5,6 +5,7 @@ import time
 # powerset(items) takes item list of weights and profits
 # creates a powerset(true combination) of all items as separate list elements
 def powerset(items):
+    # return double list
     ret = [[]]
     for item in items:
         newset = [r+[item] for r in ret]
@@ -21,7 +22,7 @@ def knapsackBruteForce(pset, capacity, maxSetSize):
     bestKnapsack = []
     count = 0
     for s in pset:
-        if len(s) < maxSetSize:
+        if len(s) <= maxSetSize:
             count += 1
             # the sum of current element in pset
             currentWeight = sum([item[0] for item in s])
@@ -61,6 +62,7 @@ weights.sort()
 #over the capacity we know we wont have to check sets of size n
 #Repeat for items 1 to n-1 and so on
 n = problemSize
+
 for index in weights:
     totalSum = sum(weights[0:n])
     if totalSum <= capacity:

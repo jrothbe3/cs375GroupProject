@@ -39,7 +39,7 @@ lines = file.readlines()
 # storing data from text files, item is list of profit and weights
 problemSize = 0
 capacity = 0
-items = [];
+items = []
 count = -1
 for line in lines:
     temp = line.split(",")
