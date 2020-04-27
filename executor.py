@@ -29,16 +29,16 @@ def main():
     for i in range(0, test_iterations):
         buildFile("test.txt", test_size)
         if choice_number in {1,4}:
-            proc_back = subprocess.getoutput("backtrack.py test.txt output1.txt")
-            print("proc_back: " + proc_back + " (" + str(i) + ")")
+            proc_back = subprocess.check_output(["backtrack.py", "test.txt", "output1.txt"], shell=True)
+            print("proc_back: " + str(float(proc_back)) + " (" + str(i) + ")")
             total_back += float(proc_back)
         if choice_number in {2,4}:
-            proc_BF = subprocess.getoutput("brute_force_KS.py test.txt output2.txt")
-            print("proc_BF: " + proc_BF + " (" + str(i) + ")")
+            proc_BF = subprocess.check_output(["brute_force_KS.py", "test.txt", "output2.txt"], shell=True)
+            print("proc_BF: " + str(float(proc_BF)) + " (" + str(i) + ")")
             total_BF += float(proc_BF)
         if choice_number in {3,4}:
-            proc_BF_optimized = subprocess.getoutput("brute_force_optimized.py test.txt output3.txt")
-            print("proc_BF_optimized: " + proc_BF_optimized + " (" + str(i) + ")")
+            proc_BF_optimized = subprocess.check_output(["brute_force_optimized.py", "test.txt", "output3.txt"], shell=True)
+            print("proc_BF_optimized: " + str(float(proc_BF_optimized)) + " (" + str(i) + ")")
             total_BF_optimized += float(proc_BF_optimized)
         print("")
     if choice_number in {1, 4}:
