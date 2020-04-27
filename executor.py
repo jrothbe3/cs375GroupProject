@@ -38,14 +38,15 @@ def main():
             total_BF += float(proc_BF)
         if choice_number in {3,4}:
             proc_BF_optimized = subprocess.getoutput("brute_force_optimized.py test.txt output3.txt")
-            print("proc_BF_optimized: " + proc_BF_optimized + " (" + str(i) + ")\n")
+            print("proc_BF_optimized: " + proc_BF_optimized + " (" + str(i) + ")")
             total_BF_optimized += float(proc_BF_optimized)
+        print("")
     if choice_number in {1, 4}:
-        print("avg_back: " + str(float(total_back)/float(test_iterations)))
+        print("AVG_back: " + str(float(total_back)/float(test_iterations)))
     if choice_number in {2, 4}:
-        print("avg_BF: " + str(float(total_BF) / float(test_iterations)))
+        print("AVG_BF: " + str(float(total_BF) / float(test_iterations)))
     if choice_number in {3, 4}:
-        print("avg_BF_optimized: " + str(float(total_BF_optimized) / float(test_iterations)))
+        print("AVG_BF_optimized: " + str(float(total_BF_optimized) / float(test_iterations)))
 
 
 if __name__ == "__main__":
