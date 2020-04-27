@@ -7,7 +7,11 @@ Execution instructions:
 3. In linux terminal enter "python backtrack.py <input.txt> <output.txt>"
 or "python brute_force_KS.py <input.txt> <output.txt>"
 or "python brute_force_optimized.py <input.txt> <output.txt>"
-or "python executor.py <numberofelements(int)> <testingiterations(int)>
+or "python executor.py <numberOfelements(int)> <testingIterations(int)> <whatScriptToRun(int)>"
+1 == backtrack.py
+2 == brute_force_KS.py
+3 == brute_force_optimized.py
+4 == all three scripts
 ___________________________________________________________
 backtrack.py:
 Immutable arrays for holding items and some single lists for output. 

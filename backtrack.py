@@ -3,6 +3,7 @@
 import sys
 import copy
 import time
+sys.setrecursionlimit(20000)
 
 # You could place these in a class but it will be slower
 # include is a temp solution for every recursive iteration
@@ -39,6 +40,7 @@ def promising(i, profit, weight, items, weight_limit):
     bound = findBound(i + 1, profit, weight, items, weight_limit)
     global maxprofit
     return bound > maxprofit
+
 
 # knapsack(i, profit, weight, weight_limit, items) passes an array of values and weights along with the size and capacity limits
 # Its purpose is to check both paths for taking an item and not taking an item in the knapsack
@@ -97,9 +99,9 @@ def main():
     with open(output, "w") as file:
         file.write(str(num_items) + ",")
         if maxprofit.is_integer():
-            file.write(str(int(maxprofit)) + "\n")
+            file.write(str(int(maxprofit)) + "," + str(total)+ "\n")
         else:
-            file.write(str(maxprofit) + "\n")
+            file.write(str(maxprofit) + "," + str(total) + "\n")
         for i in range(1, len(bestset)):
             if bestset[i] == 1:
                 file.write(str(items[i][0]) + "," + str(items[i][1]) + "\n")
