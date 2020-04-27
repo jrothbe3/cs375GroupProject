@@ -29,17 +29,20 @@ def main():
     for i in range(0, test_iterations):
         buildFile("test.txt", test_size)
         if choice_number in {1,4}:
-            proc_back = subprocess.check_output(["backtrack.py", "test.txt", "output1.txt"], shell=True)
-            print("proc_back: " + str(float(proc_back)) + " (" + str(i) + ")")
-            total_back += float(proc_back)
+            proc_back = subprocess.Popen("python backtrack.py test.txt output1.txt", stdout=subprocess.PIPE, shell=True)
+            back_time = proc_back.communicate()[0].decode('ascii')
+            print("proc_back: " + str(float(back_time)) + " (" + str(i) + ")")
+            total_back += float(back_time)
         if choice_number in {2,4}:
-            proc_BF = subprocess.check_output(["brute_force_KS.py", "test.txt", "output2.txt"], shell=True)
-            print("proc_BF: " + str(float(proc_BF)) + " (" + str(i) + ")")
-            total_BF += float(proc_BF)
+            proc_BF = subprocess.Popen("python brute_force_KS.py test.txt output2.txt", stdout=subprocess.PIPE, shell=True)
+            BF_time = proc_BF.communicate()[0].decode('ascii')
+            print("proc_BF: " + str(float(BF_time)) + " (" + str(i) + ")")
+            total_BF += float(BF_time)
         if choice_number in {3,4}:
-            proc_BF_optimized = subprocess.check_output(["brute_force_optimized.py", "test.txt", "output3.txt"], shell=True)
-            print("proc_BF_optimized: " + str(float(proc_BF_optimized)) + " (" + str(i) + ")")
-            total_BF_optimized += float(proc_BF_optimized)
+            proc_BF_optimized = subprocess.Popen("python brute_force_optimized.py test.txt output3.txt", stdout=subprocess.PIPE, shell=True)
+            optimized_time = proc_BF_optimized.communicate()[0].decode('ascii')
+            print("proc_BF_optimized: " + str(float(optimized_time)) + " (" + str(i) + ")")
+            total_BF_optimized += float(optimized_time)
         print("")
     if choice_number in {1, 4}:
         print("AVG_back: " + str(float(total_back)/float(test_iterations)))
