@@ -76,11 +76,12 @@ end = time.time()
 totalTime = end - start
 print(totalTime)
 output = open(sys.argv[2], "w")
-output.write("# of Items: " +  str(problemSize) + '\n')
-output.write("Capacity: " + str(capacity) + '\n')
-output.write("Max Profit: " + str(maxProfit) + '\n')
-output.write("Running Time: " + str(totalTime) + '\n')
-output.write("----Items-----" + '\n')
+#output.write("# of Items: " +  str(problemSize) + '\n')
+#output.write("Capacity: " + str(capacity) + '\n')
+#output.write("Max Profit: " + str(maxProfit) + '\n')
+#output.write("Running Time: " + str(totalTime) + '\n')
+#output.write("----Items-----" + '\n')
+output.write(str(problemSize) + "," + str(maxProfit) + "," + str(totalTime) + "\n");
 for item in knapsack:
     output.write(str(item) + '\n')
 
